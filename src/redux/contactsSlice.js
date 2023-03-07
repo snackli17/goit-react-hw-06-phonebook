@@ -15,23 +15,16 @@ export const contactsSlice = createSlice({
         addContact: (state, { payload }) => {
             const { name, number } = payload;
             const id = nanoid();
-            const includesName = state.find(
-                contact => contact.name.toLocaleLowerCase() === name.toLocaleLowerCase()
-            );
-
-            if (includesName) {
-                alert(`${name} is already in contacts`);
-            } else {
-                let contact = { id, name, number };
-                state.push(contact);
-            }
+            state.push({ id, name, number });
         },
 
         removeContact: (state, { payload }) => {
             const { id } = payload;
-            return state.filter(contact => contact.id !== id);
+            return state.filter((contact) => contact.id !== id);
         },
     },
 });
 
 export const { addContact, removeContact } = contactsSlice.actions;
+
+export const selectContacts = (state) => state.contacts;
