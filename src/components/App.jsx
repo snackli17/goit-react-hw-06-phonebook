@@ -63,12 +63,3 @@ export const App = () => {
     </div>
   );
 };
-      <div>
-        <h1>Phonebook</h1>
-        <ContactForm handleSubmit={handleSubmit} />
-        <h2>Contacts</h2>
-        <Filter filter={filter} handleChange={handleChange} />
-        <ContactList contacts={getFilteredContacts()} handleDelete={handleDelete} />
-      </div>
-    );
-}
